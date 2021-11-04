@@ -1,0 +1,18 @@
+#!/usr/bin/with-contenv sh
+
+echo "================================="
+echo $HL_USER_USERNAME
+echo "================================="
+
+source /etc/hluser
+
+homedir=$( getent passwd "$HL_USER_USERNAME" | cut -d: -f6 )
+userid=$( id -u "$HL_USER_USERNAME" )
+groupid=$( id -g "$HL_USER_USERNAME" )
+cd $homedir
+echo "permissions in $homedir"
+ls -al $homedir
+ls -lt /
+
+# do not detach (-D), log to stderr (-e), passthrough other arguments
+exec /usr/sbin/sshd -D -e "$@"

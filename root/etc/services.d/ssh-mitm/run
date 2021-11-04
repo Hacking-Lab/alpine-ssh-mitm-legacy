@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv sh
+
+exec ssh-proxy --lport=4444 --rhost=localhost --rport=22 localhost

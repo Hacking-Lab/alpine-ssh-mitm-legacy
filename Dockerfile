@@ -14,6 +14,7 @@ FROM hackinglab/alpine-base:3.2
 MAINTAINER Ivan Buetler <ivan.buetler@compass-security.com>
 
 COPY --from=builder /build/ssh-proxy /usr/bin/ssh-proxy
+COPY --from=builder /usr/lib/libssh.so.4 /usr/lib/libssh.so.4
 
 # Install openssh server
 RUN apk add --update openssl openssh-server file && \

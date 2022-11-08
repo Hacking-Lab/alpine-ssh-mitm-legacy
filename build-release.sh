@@ -1,6 +1,20 @@
 #!/bin/bash
-docker build --no-cache -t hackinglab/alpine-ssh-mitm:$1.0 -t hackinglab/alpine-ssh-mitm:$1 -t hackinglab/alpine-ssh-mitm:latest -f Dockerfile .
 
-docker push hackinglab/alpine-ssh-mitm
-docker push hackinglab/alpine-ssh-mitm:$1
-docker push hackinglab/alpine-ssh-mitm:$1.0
+case `uname -m` in 
+
+	x86_64)
+		echo "=============================================="
+		echo "building x86_64"
+		docker buildx build --platform linux/amd64 --no-cache -t hackinglab/alpine-ssh-mitm:amd64-latest -t hackinglab/alpine-ssh-mitm:amd64-$1 -t hackinglab/alpine-ssh-mitm:amd64-$1.0 -f Dockerfile.amd64 .
+	;;
+
+	aarch64)
+                echo "=============================================="
+                echo "building arm64"
+                docker buildx build --platform linux/arm64 --no-cache -t hackinglab/alpine-ssh-mitm:arm64-latest -t hackinglab/alpine-ssh-mitm:arm64-$1 -t hackinglab/alpine-ssh-mitm:arm64-$1.0 -f Dockerfile.arm64 .
+	;;
+
+	*)
+		echo "OS not found"
+	;;
+esac

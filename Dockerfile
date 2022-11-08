@@ -1,4 +1,4 @@
-FROM hackinglab/alpine-base:3.2 as builder
+FROM hackinglab/alpine-base-hl:3.2 as builder
 MAINTAINER Ivan Buetler <ivan.buetler@compass-security.com>
 
 # Install openssh server
@@ -10,7 +10,7 @@ RUN apk add --update openssl openssh-server file alpine-sdk gcc g++ libssh-dev a
 
 
 
-FROM hackinglab/alpine-base:3.2
+FROM hackinglab/alpine-base-hl:3.2
 MAINTAINER Ivan Buetler <ivan.buetler@compass-security.com>
 
 COPY --from=builder /build/ssh-proxy /usr/bin/ssh-proxy

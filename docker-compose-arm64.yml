@@ -2,7 +2,10 @@ version: '2'
 
 services:
   ssh-mitm-legancy: 
-    image: hackinglab/alpine-ssh-mitm-legacy:amd64-3.2.0
+    image: hackinglab/alpine-ssh-mitm-legacy:arm64-3.2.0
+    build:
+      context: .
+      dockerfile: Dockerfile.arm64
     environment:
     - AUTHOR=e1
     - HL_USER_USERNAME=hacker

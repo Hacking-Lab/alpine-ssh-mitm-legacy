@@ -15,4 +15,4 @@ ls -al $homedir
 ls -lt /
 
 # do not detach (-D), log to stderr (-e), passthrough other arguments
-exec /usr/sbin/sshd -D -e "$@"
+exec /usr/sbin/sshd -D -e

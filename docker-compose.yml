@@ -1,8 +1,8 @@
 version: '2'
 
 services:
-  ssh-mitm-legancy: 
-    image: hackinglab/alpine-ssh-mitm-legacy:amd64-3.2.0
+  ssh-mitm-legancy:
+    image: hackinglab/alpine-ssh-mitm-legacy:3.2 
     environment:
     - AUTHOR=e1
     - HL_USER_USERNAME=hacker

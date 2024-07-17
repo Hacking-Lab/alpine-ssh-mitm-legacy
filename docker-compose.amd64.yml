@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+  ssh-mitm-legacy:
+    image: hackinglab/alpine-ssh-mitm:amd64
+    environment:
+      - AUTHOR=e1
+      - HL_USER_USERNAME=hacker
+      - HL_USER_PASSWORD=compass
+    ports:
+      - "4444:4444"
+      - "22:22"

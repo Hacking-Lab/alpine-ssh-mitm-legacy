@@ -1,5 +1,5 @@
 FROM hackinglab/alpine-base-hl:3.2 as builder
-LABEL maintainer="Ivan Buetler <ivan.buetler@compass-security.com>"
+LABEL maintainer="Ivan Buetler <ivan.buetler@hacking-lab.com>"
 
 # Install openssh server
 RUN apk add --update openssl openssh-server file alpine-sdk gcc g++ libssh-dev argp-standalone git && \
@@ -11,7 +11,7 @@ RUN apk add --update openssl openssh-server file alpine-sdk gcc g++ libssh-dev a
 
 
 FROM hackinglab/alpine-base-hl:3.2
-LABEL maintainer="Ivan Buetler <ivan.buetler@compass-security.com>"
+LABEL maintainer="Ivan Buetler <ivan.buetler@hacking-lab.com>"
 
 COPY --from=builder /build/ssh-proxy /usr/bin/ssh-proxy
 COPY --from=builder /usr/lib/libssh.so.4 /usr/lib/libssh.so.4

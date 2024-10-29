@@ -1,4 +1,4 @@
-FROM hackinglab/alpine-base-hl:3.2 as builder
+FROM hackinglab/alpine-base-hl:3.2 AS builder
 LABEL maintainer="Ivan Buetler <ivan.buetler@hacking-lab.com>"
 
 # Install openssh server

@@ -3,6 +3,8 @@
 * ssh-mitm-proxy will run and expose port on 4444 and forward ssh traffic to port 22
 
 # Credentials
+Default credentials from `docker-compose.yml`
+
 * username = hacker
 * password = compass
 

@@ -17,7 +17,7 @@ COPY --from=builder /build/ssh-proxy /usr/bin/ssh-proxy
 COPY --from=builder /usr/lib/libssh.so.4 /usr/lib/libssh.so.4
 
 # Install openssh server
-RUN apk add --update openssl openssh-server file && \
+RUN apk add --update openssl openssh openssh-server file && \
     rm -rf /var/cache/apk/*
 
 # Add the files
